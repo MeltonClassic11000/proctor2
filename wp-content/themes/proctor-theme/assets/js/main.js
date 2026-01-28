@@ -1,4 +1,4 @@
-$(document).ready(function () {
+jQuery(document).ready(function ($) {
     // header
     $(window).on('scroll', function () {
         $('.header').toggleClass('scrolled', $(this).scrollTop() > 20);
