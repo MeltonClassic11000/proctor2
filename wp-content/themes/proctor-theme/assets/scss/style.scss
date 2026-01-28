@@ -5,8 +5,12 @@
     color: #262626;
     font-family: "Inter", sans-serif;
 }
+body {
+    background-color: #FFFAF6;
+}
 
 p {
+    margin-bottom: 1rem;
     line-height: 1.5;
 }
 
@@ -478,7 +482,7 @@ h2.h3,
             &::before {
                 width: 17px;
                 height: 15px;
-                background: url("./../img/icon/home-hero-check-icon2.webp") center/ contain no-repeat;
+                background: url("./../img/icon/home-hero-check-icon2.svg") center/ contain no-repeat;
                 top: 2px;
             }
         }

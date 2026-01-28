@@ -16,7 +16,7 @@ get_header();
 ?>
 
 <!-- Sections -->
-<div class="overflow-hidden">
+
 	<section class="hero-sec">
 		<div class="container">
 			<div class="row">
@@ -694,7 +694,7 @@ get_header();
 			</div>
 		</div>
 	</section>
-</div>
+
 
 <?php
 get_footer();
