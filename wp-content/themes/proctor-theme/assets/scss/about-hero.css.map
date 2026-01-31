@@ -1,1 +1,1 @@
-{"version":3,"sources":["about-hero.scss","about-hero.css"],"names":[],"mappings":"AAAA;EACI,kBAAA;EACA,mBAAA;EACA,kBAAA;EACA,oCAAA;ACCJ;;ADGA,gBAAA;AACA;EACI;IACI,kBAAA;ECAN;AACF","file":"about-hero.css"}
+{"version":3,"sources":["about-hero.scss","about-hero.css"],"names":[],"mappings":"AAAA;EACI,iBAAA;EACA,mBAAA;EACA,kBAAA;EACA,oCAAA;ACCJ;;ADGA,gBAAA;AACA;EACI;IACI,kBAAA;ECAN;AACF","file":"about-hero.css"}

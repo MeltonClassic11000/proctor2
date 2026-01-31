@@ -54,6 +54,8 @@
   transition: all 0.3s ease;
 }
 .contact-card-sec .contact-card-wrapper .contact-card .icon-wrapper .icon img {
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: all 0.3s ease;
 }
 .contact-card-sec .contact-card-wrapper .contact-card .card-content {

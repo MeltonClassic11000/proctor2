@@ -1,40 +1,60 @@
-<?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package proctor-theme
- */
+<?php get_header(); ?>
 
-get_header();
-?>
+<div class="container">
+    
+    <!-- Post Title -->
+    <h1 class="post-title"><?php the_title(); ?></h1>
+    
+    <!-- Post Meta (Date, Author) -->
+    <div class="post-meta">
+        <?php the_date(); ?> | By <?php the_author(); ?> | In <?php the_category(', '); ?>
+    </div>
+    
+    <!-- Featured Image -->
+    <?php if(has_post_thumbnail()) : ?>
+        <div class="featured-image">
+            <?php the_post_thumbnail('full'); ?>
+        </div>
+    <?php endif; ?>
+    
+    <!-- Table of Contents (agar chahiye) -->
+    <div class="toc">
+        <!-- Yahan aap "Easy Table of Contents" plugin use kar sakte hain -->
+        <!-- Ya phir manual HTML likh sakte hain -->
+    </div>
+    
+    <!-- Post Content -->
+    <div class="post-content">
+        <?php the_content(); ?>
+    </div>
+    
+    <!-- Featured/Related Posts Section -->
+    <div class="featured-blogs">
+        <h2>Featured Blogs</h2>
+        
+        <?php
+        $related = new WP_Query(array(
+            'post_type' => 'post',
+            'posts_per_page' => 3,
+            'orderby' => 'rand' // random posts
+        ));
+        
+        if($related->have_posts()) :
+            while($related->have_posts()) : $related->the_post();
+        ?>
+            <div class="blog-card">
+                <?php if(has_post_thumbnail()) the_post_thumbnail('medium'); ?>
+                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                <p><?php echo wp_trim_words(get_the_excerpt(), 15); ?></p>
+            </div>
+        <?php
+            endwhile;
+            wp_reset_postdata();
+        endif;
+        ?>
+        
+    </div>
+    
+</div>
 
-	<main id="primary" class="site-main">
-
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', get_post_type() );
-
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'proctor-theme' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'proctor-theme' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- #main -->
-
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer(); ?>

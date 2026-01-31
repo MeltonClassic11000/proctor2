@@ -60,6 +60,7 @@
                     transition: all .3s ease;
 
                     img {
+                        object-fit: contain;
                         transition: all .3s ease;
                     }
                 }
