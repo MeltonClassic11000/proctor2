@@ -1,5 +1,4 @@
 .infinite-slider-sec {
-    padding-top: 20px;
     padding-bottom: 0;
 
     .logo-slider-wrapper {
@@ -33,6 +32,10 @@
                     height: 88px;
                     min-width: 88px;
                     padding: 16px;
+                    img{
+                        width: 55px;
+                        height: auto;
+                    }
                 }
             }
         }

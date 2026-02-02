@@ -1,3 +1,6 @@
+.footer {
+  padding-top: clamp(45px, 6vw, 60px);
+}
 .footer .footer-wrapper {
   display: flex;
   justify-content: space-between;

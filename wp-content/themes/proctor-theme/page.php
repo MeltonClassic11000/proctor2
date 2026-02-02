@@ -28,7 +28,7 @@ $theme_url = get_stylesheet_directory_uri();
 						<div class="col-xl-7">
 							<div class="content-wrapper">
 								<?php if (get_sub_field('section_badge')): ?>
-									<div class="secondary-btn pt-1 pb-1 mb-3">
+									<div class="secondary-btn text-primary mb-3">
 										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/shield-icon.webp"
 											width="25" height="28" alt="Icon" loading="lazy">
 										<?php the_sub_field('section_badge'); ?>
@@ -123,7 +123,7 @@ $theme_url = get_stylesheet_directory_uri();
 						class="content-wrapper d-flex align-items-center justify-content-xl-between justify-content-center text-lg-start text-center gap-3 flex-wrap mb-5">
 						<h2 class="mb-0"><?php the_sub_field('main_title'); ?></h2>
 						<?php if (get_sub_field('section_badge')): ?>
-							<div class="secondary-btn pt-1 pb-1 mb-3">
+							<div class="secondary-btn text-primary">
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/shield-icon.webp" width="25"
 									height="28" alt="Icon" loading="lazy">
 								<?php the_sub_field('section_badge'); ?>
@@ -567,36 +567,39 @@ $theme_url = get_stylesheet_directory_uri();
 			<link rel="stylesheet" id="hero-css" href="<?= $theme_url ?>/assets/scss/about-hero.css" type="text/css">
 			<section class="hero-sec">
 				<div class="container">
-					<div class="row g-4">
-						<div class="col-lg-6">
-							<div class="content-wrapper d-flex flex-column h-100 justify-content-center">
-								<ul class="breadcrumbs d-flex align-items-center gap-2 flex-wrap text-center mb-4">
-									<li>
-										<a href="<?php echo esc_url(home_url('/')); ?>" class="text-black">Home</a>
-									</li>
-									<li class="separator">
-										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/breadcrumbs-angle-right-icon.svg"
-											width="6" height="10" alt="Icon">
-									</li>
-									<li class="text-primary fw-medium">About Us</li>
-								</ul>
+					<div class="main-wrapper">
+						<div class="row g-4">
+							<div class="col-xl-6">
+								<div class="content-wrapper d-flex flex-column h-100 justify-content-center">
+									<ul class="breadcrumbs d-flex align-items-center gap-2 flex-wrap text-center mb-4">
+										<li>
+											<a href="<?php echo esc_url(home_url('/')); ?>" class="text-black">Home</a>
+										</li>
+										<li class="separator">
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/breadcrumbs-angle-right-icon.svg"
+												width="6" height="10" alt="Icon">
+										</li>
+										<li class="text-primary fw-medium">About Us</li>
+									</ul>
 
-								<h1 class="mb-3">
-									<?php the_sub_field('main_title'); ?>
-								</h1>
+									<h1 class="mb-3">
+										<?php the_sub_field('main_title'); ?>
+									</h1>
 
-								<p class="mb-0 fs-18">
-									<?php the_sub_field('description'); ?>
-								</p>
+									<div class="mb-0 fs-18">
+										<?php the_sub_field('description'); ?>
+									</div>
+
+								</div>
 							</div>
-						</div>
-
-						<div class="col-lg-6">
-							<?php $hero_image = get_sub_field('hero_image'); ?>
-							<?php if ($hero_image): ?>
-								<img src="<?php echo esc_url($hero_image['url']); ?>" class="hero-img img-fluid d-block mx-auto"
-									style="max-width:616px;" width="616" height="413" alt="<?php echo esc_attr($hero_image['alt']); ?>">
-							<?php endif; ?>
+							<div class="col-xl-6">
+								<?php $hero_image = get_sub_field('hero_image'); ?>
+								<?php if ($hero_image): ?>
+									<img src="<?php echo esc_url($hero_image['url']); ?>" class="hero-img img-fluid d-block mx-auto"
+										style="max-width:616px;" width="616" height="413"
+										alt="<?php echo esc_attr($hero_image['alt']); ?>">
+								<?php endif; ?>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -698,7 +701,7 @@ $theme_url = get_stylesheet_directory_uri();
 
 		<?php elseif (get_row_layout() == 'about_why_choose_us'): ?>
 			<link rel="stylesheet" id="hero-css" href="<?= $theme_url ?>/assets/scss/why-choose-us.css" type="text/css">
-			<section class="why-choose-us pb-0">
+			<section class="why-choose-us">
 				<div class="container">
 
 					<div class="topbar d-flex align-items-center justify-content-between flex-wrap gap-3 mb-5">
@@ -740,7 +743,7 @@ $theme_url = get_stylesheet_directory_uri();
 			</section>
 
 		<?php elseif (get_row_layout() == 'half_section_s1'): ?>
-			<section class="half-sec mb-0">
+			<section class="half-sec pt-0 bg-white mb-0">
 				<div class="container">
 					<div class="row g-4">
 
@@ -882,7 +885,7 @@ $theme_url = get_stylesheet_directory_uri();
 			$name = get_sub_field('name');
 			?>
 			<link rel="stylesheet" id="hero-css" href="<?= $theme_url ?>/assets/scss/featured-blog.css" type="text/css">
-			<section class="featured-blog-sec">
+			<section class="featured-blog-sec bg-white">
 				<div class="container">
 
 					<div class="content-wrapper mb-5">
@@ -980,97 +983,103 @@ $theme_url = get_stylesheet_directory_uri();
 
 		<?php elseif (get_row_layout() == 'featured_blog_card_section'): ?>
 			<link rel="stylesheet" id="hero-css" href="<?= $theme_url ?>/assets/scss/featured-blog.css" type="text/css">
-			<div class="container mb-5">
-				<h2 class="h3 title"><?php the_sub_field('main_title'); ?></h2>
+			<section class="bg-white pt-0">
+				<div class="container">
+					<h2 class="h3 title">
+						<?php the_sub_field('main_title'); ?>
+					</h2>
 
-				<div class="tabs-wrapper">
+					<div class="tabs-wrapper">
 
-					<!-- Tabs Buttons -->
-					<div class="tabs-buttons">
-						<?php
-						$tab_index = 1;
-						if (have_rows('tab')):
-							while (have_rows('tab')):
-								the_row();
-								?>
-								<button class="tab-btn <?php echo $tab_index === 1 ? 'active' : ''; ?>"
-									data-tab="tab<?php echo $tab_index; ?>">
-									<?php the_sub_field('tab_button'); ?>
-								</button>
-								<?php
-								$tab_index++;
-							endwhile;
-						endif;
-						?>
-					</div>
+						<!-- Tabs Buttons -->
+						<div class="tabs-buttons">
+							<?php
+							$tab_index = 1;
+							if (have_rows('tab')):
+								while (have_rows('tab')):
+									the_row();
+									?>
+									<button class="tab-btn <?php echo $tab_index === 1 ? 'active' : ''; ?>"
+										data-tab="tab<?php echo $tab_index; ?>">
+										<?php the_sub_field('tab_button'); ?>
+									</button>
+									<?php
+									$tab_index++;
+								endwhile;
+							endif;
+							?>
+						</div>
 
-					<!-- Tabs Content -->
-					<div class="tabs-content">
-						<?php
-						$content_index = 1;
-						if (have_rows('tab')):
-							while (have_rows('tab')):
-								the_row();
-								?>
-								<div class="tab-content <?php echo $content_index === 1 ? 'active' : ''; ?>"
-									id="tab<?php echo $content_index; ?>">
+						<!-- Tabs Content -->
+						<div class="tabs-content">
+							<?php
+							$content_index = 1;
+							if (have_rows('tab')):
+								while (have_rows('tab')):
+									the_row();
+									?>
+									<div class="tab-content <?php echo $content_index === 1 ? 'active' : ''; ?>"
+										id="tab<?php echo $content_index; ?>">
 
-									<div class="row g-3">
-										<?php
-										if (have_rows('tab_card')):
-											while (have_rows('tab_card')):
-												the_row();
-												$tab_image = get_sub_field('tab_image');
-												$client_image = get_sub_field('client_image');
-												?>
-												<div class="col-lg-4 col-md-6">
-													<div class="blog-card">
+										<div class="row g-3">
+											<?php
+											if (have_rows('tab_card')):
+												while (have_rows('tab_card')):
+													the_row();
+													$tab_image = get_sub_field('tab_image');
+													$client_image = get_sub_field('client_image');
+													?>
+													<div class="col-lg-4 col-md-6">
+														<div class="blog-card">
 
-														<?php if ($tab_image): ?>
-															<img src="<?php echo esc_url($tab_image['url']); ?>"
-																alt="<?php echo esc_attr($tab_image['alt']); ?>" class="img-fluid d-block mb-3"
-																style="border-radius:12px 12px 0 0;">
-														<?php endif; ?>
+															<?php if ($tab_image): ?>
+																<img src="<?php echo esc_url($tab_image['url']); ?>"
+																	alt="<?php echo esc_attr($tab_image['alt']); ?>" class="img-fluid d-block mb-3"
+																	style="border-radius:12px 12px 0 0;">
+															<?php endif; ?>
 
-														<div class="blog-title fs-24 poppins-semibold mb-2 line-height-md">
-															<?php the_sub_field('tab_title'); ?>
-														</div>
+															<div class="blog-title fs-24 poppins-semibold mb-2 line-height-md">
+																<?php the_sub_field('tab_title'); ?>
+															</div>
 
-														<p class="mb-3"><?php the_sub_field('tab_description'); ?></p>
+															<p class="mb-3">
+																<?php the_sub_field('tab_description'); ?>
+															</p>
 
-														<div class="blog-bottom d-flex justify-content-between">
-															<div class="d-flex align-items-center gap-2">
-																<?php if ($client_image): ?>
-																	<img src="<?php echo esc_url($client_image['url']); ?>" width="40" height="40">
-																<?php endif; ?>
-																<div class="poppins-medium fs-14">
-																	<?php the_sub_field('client_name'); ?>
+															<div class="blog-bottom d-flex justify-content-between">
+																<div class="d-flex align-items-center gap-2">
+																	<?php if ($client_image): ?>
+																		<img src="<?php echo esc_url($client_image['url']); ?>" width="40" height="40">
+																	<?php endif; ?>
+																	<div class="poppins-medium fs-14">
+																		<?php the_sub_field('client_name'); ?>
+																	</div>
+																</div>
+
+																<div class="d-flex align-items-center gap-1">
+																	<div class="date fs-14 poppins-medium">
+																		<?php the_sub_field('date'); ?>
+																	</div>
 																</div>
 															</div>
 
-															<div class="d-flex align-items-center gap-1">
-																<div class="date fs-14 poppins-medium">
-																	<?php the_sub_field('date'); ?>
-																</div>
-															</div>
 														</div>
-
 													</div>
-												</div>
-												<?php
-											endwhile;
-										endif;
-										?>
+													<?php
+												endwhile;
+											endif;
+											?>
+										</div>
 									</div>
-								</div>
-								<?php
-								$content_index++;
-							endwhile;
-						endif;
-						?>
+									<?php
+									$content_index++;
+								endwhile;
+							endif;
+							?>
+						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 
 		<?php elseif (get_row_layout() == 'blog_half_section'): ?>
 			<section class="default-sec p-xl-0 p-0 pt-5 bg-cream">

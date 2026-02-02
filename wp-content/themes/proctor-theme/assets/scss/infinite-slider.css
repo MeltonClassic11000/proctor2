@@ -1,5 +1,4 @@
 .infinite-slider-sec {
-  padding-top: 20px;
   padding-bottom: 0;
 }
 .infinite-slider-sec .logo-slider-wrapper {
@@ -32,6 +31,10 @@
   height: 88px;
   min-width: 88px;
   padding: 16px;
+}
+.infinite-slider-sec .logo-slider-wrapper .logo-slider .slide .icon-wrapper img {
+  width: 55px;
+  height: auto;
 }
 
 /* media query */
